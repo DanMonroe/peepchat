@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: qHC7mCnZZYQXUFNPznkHzjiOXEpQWCwQIQoVW41HMLxonmO2Xg4TW2U1ccOnj5tU9hDWTDPTL8mvOmO3dngup9dzhazPnKMvY3qiOzf9M+Y4cRYB5Pj2YApaDIHvqJal7gBg58b2i5HoAMNdhY68EpsRngdpMHn380qmN24If6nNnunt7hMjrgqc8cuJh/S/z/N7kkr6LnfA5TkUX0clmvghMDBzSfLZsMC3NENOJzHPpqlx81ki6oZRIyWsOUM7HHZckMw0vdMzpKwzTkh+i2QkjkyUJdPk+Q7mn1tl2M9TD/vFSD9OTVMZNCYLVu7W2jnkaxmCSblMjQwg9fq4L6hP5QMLQyGo108IkMX5vOfVx7kUhsR/qdDt/Z+K+DhOMtgqAYp4BWlWbd/lGwXdCXax1k/7F6P1fQk2XKiG0aOQgaLOFMJaZfH/192M/cozbBB8slSHH1XTeMRKkgO7GYIGgksgF6kr3/A2zWCK3iGp87MC+rdH/VV07fZtbUKSCIB+5Qj2PCihSqap81pNCz4B+3BiymMANEpAl2wj3IIYx5AnAyij/SrfPHwJ7QQTMWja371xCIZ2xC4fCE2P7GzsMGg5n/GnvKvfodu/nHJ0jwaLMXFLtD37njupu1tlxrRPBgNpaV28AMihNd8suRWqUBB98bK+wIWx7jtmbq0=
+  app: limitless-dusk-86896
+  on:
+    repo: DanMonroe/peepchat
